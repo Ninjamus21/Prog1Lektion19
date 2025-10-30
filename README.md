@@ -1,4 +1,3 @@
-# Onsdag den 19. april
 
 ## Opgave 1
 
@@ -41,7 +40,7 @@ Du skal oprette en ny folder med kopier af klasserne fra opgave 1 fjern link att
 
 Betragt følgende klasse diagram:
 
-<img src="resources/24_Opgaver.png" width="1200">
+<img src="resources/umlCar.png" width="1200">
 
 - Hvad betyder det at multipliciteten er 0..* i begge retninger?
 - Programmér klasserne Car og Rental, idet der er brug for at navigere fra udlejning til bil. Udskyd metoden getPrice til delopgave d).
@@ -50,9 +49,9 @@ Betragt følgende klasse diagram:
 
 ## Opgave 4
 
-Du skal oprette et nyt modul med kopier af klasserne fra opgave 2 og rette disse.
+Opret en ny folder med kopier af klasserne fra opgave 2 og rette disse.
 
-![UML diagram](https://i.imgur.com/sBl2a7k.png)
+<img src="resources/umlKomposition.png" width="600">
 
 Programmer kompositionen mellem træningsplan og svømmer. Lav en afprøvklasse og prøv kompositionen af ved at lave et objekt af TrainingPlan og derefter et antal objekter af Swimmer.
 
@@ -64,22 +63,16 @@ Programmer kompositionen mellem træningsplan og svømmer. Lav en afprøvklasse 
 
 Betragt følgende klassemodel for et system til brug ved administration af tv-serier og de til serien hørende enkeltafsnit.
 
-![UML diagram](https://i.imgur.com/nL2X9g5.png)
+<img src="resources/umlSerie.png" width="1200">
 
 Klassen Series indeholder seriens titel og navne på de faste skuespillere i serien.
 Klassen Episode indeholder nummeret på et afsnit i serien, afsnittets længde i minutter og navnet på gæsteskuespillerene (i hvert afsnit optræder ud over de faste skuespillere en eller flere gæsteskuespillere).
 
-### Opgave 5.1
+- Implementér klasserne Series og Episode uden at tage hensyn til kompositionen i diagrammet.
 
-Implementér klasserne Series og Episode uden at tage hensyn til kompositionen i diagrammet.
+- Implementér kompositionen mellem Series og Episode. Du skal også tilføje en konstruktor til klassen Episode. Konstruktøren for Episode skal initialisere alle attributter i klassen.
 
-### Opgave 5.2
-
-Implementér kompositionen mellem Series og Episode. Du skal også tilføje en konstruktor til klassen Episode. Konstruktøren for Episode skal initialisere alle attributter i klassen.
-
-### Opgave 5.3
-
-Programmér følgende metode tilhørende klassen Series:
+- Programmér følgende metode tilhørende klassen Series:
 
 ```java
 /**
@@ -89,9 +82,7 @@ Programmér følgende metode tilhørende klassen Series:
 public int totalLength()
 ```
 
-### Opgave 5.4
-
-Programmér følgende metode tilhørende klassen Series:
+- Programmér følgende metode tilhørende klassen Series:
 
 ```java
 /**
