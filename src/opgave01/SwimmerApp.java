@@ -1,4 +1,6 @@
-import model.Swimmer;
+package opgave01;
+
+import opgave01.model.Swimmer;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package model;
+package opgave01.model;
 
 /**
  * Models a training plan for a Swimmer
