@@ -1,4 +1,4 @@
-package opgave01.model;
+package opgave02.model;
 
 import java.util.ArrayList;
 
@@ -9,6 +9,8 @@ public class TrainingPlan {
 	private char level;
 	private int weeklyWaterHours;
 	private int weeklyStrengthHours;
+	private ArrayList<Swimmer> swimmers = new ArrayList<>();
+	private ArrayList<TrainingPlan> trainingPlans = new ArrayList<>();
 	
 	public TrainingPlan(char level, int weeklyWaterHours, int weeklyStrengthHours) {
 		this.level = level;
@@ -40,6 +42,23 @@ public class TrainingPlan {
 		this.weeklyWaterHours = weeklyWaterHours;
 	}
 
+	public ArrayList<Swimmer> getSwimmers() {
+		return new ArrayList<>(swimmers);
+	}
+	public void addSwimmer(Swimmer swimmer){
+		if(!swimmers.contains(swimmer)){
+			swimmers.add(swimmer);
+		}
+	}
+
+	public ArrayList<TrainingPlan> getTrainingPlans() {
+		return new ArrayList<>(trainingPlans);
+	}
+	public void addTrainingPlan(TrainingPlan trainingPlan){
+		if(!trainingPlans.contains(trainingPlan)){
+			trainingPlans.add(trainingPlan);
+		}
+	}
 	public String toString(){
 		return " Level: " + level + ", Weekly water hours: " + weeklyWaterHours + ", Weekly strength hours: " + weeklyStrengthHours;
 	}

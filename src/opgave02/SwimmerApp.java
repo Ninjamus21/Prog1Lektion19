@@ -1,7 +1,7 @@
-package opgave01;
+package opgave02;
 
-import opgave01.model.Swimmer;
-import opgave01.model.TrainingPlan;
+import opgave02.model.Swimmer;
+import opgave02.model.TrainingPlan;
 
 import java.util.ArrayList;
 
@@ -21,7 +21,7 @@ public class SwimmerApp {
         lapTimes.add(1.04);
         lapTimes.add(0.99);
         Swimmer s1 = new Swimmer("Jan", 1994, lapTimes, "AGF");
-        s1.setTrainingPlan(tp1);
+
 
         lapTimes = new ArrayList<>();
         lapTimes.add(1.05);
@@ -32,7 +32,6 @@ public class SwimmerApp {
         lapTimes.add(1.04);
         lapTimes.add(1.02);
         Swimmer s2 = new Swimmer("Bo", 1995, lapTimes, "Lyseng");
-        s2.setTrainingPlan(tp2);
 
         lapTimes = new ArrayList<>();
         lapTimes.add(1.03);
@@ -45,21 +44,19 @@ public class SwimmerApp {
         Swimmer s3 = new Swimmer("Mikkel", 1993, lapTimes, "AIA-Tranbjerg");
 
 
-        ArrayList<Swimmer> swimmers = new ArrayList<>();
-        swimmers.add(s1);
-        swimmers.add(s2);
-        swimmers.add(s3);
+        tp1.addSwimmer(s1);
+        tp2.addSwimmer(s2);
 
 
 
-        for (Swimmer s : swimmers) {
-            if (s.getTrainingPlan() != null) {
-                System.out.println(s.getName() + "'s bedste tid: " + s.bestLapTime() + " sekunder");
-                System.out.println(s.getName() + "'s antal træningstimer: " + (s.allTrainingHours()));
-            } else {
-                System.out.println(s.getName() + " har ingen træningsplan.");
-            }
+        for (Swimmer s : tp1.getSwimmers()){
+            System.out.println(s);
+            System.out.println("Training Plan " + tp1.getLevel() + ": Best lap time: " + s.bestLapTime());
         }
-
+        for (Swimmer s : tp2.getSwimmers()){
+            System.out.println(s.getName());
+            System.out.println("Training Plan " + tp2.getLevel() + ": Best lap time: " + s.bestLapTime());
+        }
     }
+
 }

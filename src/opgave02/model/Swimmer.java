@@ -1,6 +1,6 @@
-package opgave01.model;
+package opgave02.model;
 
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  * Modeling a Swimmer
@@ -10,18 +10,19 @@ public class Swimmer {
     private String club;
     private int yearGroup;
     private ArrayList<Double> lapTimes;
-    private TrainingPlan trainingPlan;
-    
+
+
     /**
      * Initialize a new swimmer with name, club, yearGroup, and lap times.
-     */ 
+     */
 
-   public Swimmer(String name, int yearGroup, ArrayList<Double> lapTimes, String club) {
-       this.name = name;
-       this.yearGroup = yearGroup;
-       this.lapTimes = lapTimes;
-       this.club = club;
-   }
+    public Swimmer(String name, int yearGroup, ArrayList<Double> lapTimes, String club) {
+        this.name = name;
+        this.yearGroup = yearGroup;
+        this.lapTimes = lapTimes;
+        this.club = club;
+    }
+
     /**
      * Return the name of the swimmer
      */
@@ -45,32 +46,34 @@ public class Swimmer {
 
     /**
      * Register the club of the swimmer
+     *
      * @param club
      */
     public void setClub(String club) {
         this.club = club;
     }
-    
+
     /**
      * Return the fastest lap time
      */
     public double bestLapTime() {
         double best = Double.MAX_VALUE;
-        for (double time: lapTimes) {
-        	if(best > time) {
-        		best = time;
-        	}
+        for (double time : lapTimes) {
+            if (best > time) {
+                best = time;
+            }
         }
         return best;
     }
-    public TrainingPlan getTrainingPlan() {
-    	return trainingPlan;
-    }
-    public TrainingPlan setTrainingPlan(TrainingPlan trainingPlan){
-        return this.trainingPlan = trainingPlan;
-    }
-    public int allTrainingHours(){
-        	return trainingPlan.getWeeklyStrengthHours() + trainingPlan.getWeeklyWaterHours();
 
+    @Override
+    public String toString() {
+        return "Swimmer{" +
+                "name='" + name + '\'' +
+                ", club='" + club + '\'' +
+                ", yearGroup=" + yearGroup +
+                ", lapTimes=" + lapTimes +
+                '}';
     }
 }
+
