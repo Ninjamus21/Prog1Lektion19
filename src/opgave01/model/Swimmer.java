@@ -1,76 +1,67 @@
+// java
 package opgave01.model;
 
-import java.util.*;
+import opgave01.model.TrainingPlan;
 
-/**
- * Modeling a Swimmer
- */
+import java.util.ArrayList;
+
 public class Swimmer {
     private String name;
-    private String club;
-    private int yearGroup;
+    private int birthYear;
     private ArrayList<Double> lapTimes;
+    private String club;
     private TrainingPlan trainingPlan;
-    
-    /**
-     * Initialize a new swimmer with name, club, yearGroup, and lap times.
-     */ 
 
-   public Swimmer(String name, int yearGroup, ArrayList<Double> lapTimes, String club) {
-       this.name = name;
-       this.yearGroup = yearGroup;
-       this.lapTimes = lapTimes;
-       this.club = club;
-   }
-    /**
-     * Return the name of the swimmer
-     */
-    public String getName() {
-        return this.name;
-    }
-
-    /**
-     * Return the yearGroup of the swimmer
-     */
-    public int getYearGroup() {
-        return this.yearGroup;
-    }
-
-    /**
-     * Return the club of the swimmer
-     */
-    public String getClub() {
-        return this.club;
-    }
-
-    /**
-     * Register the club of the swimmer
-     * @param club
-     */
-    public void setClub(String club) {
+    public Swimmer(String name, int birthYear, ArrayList<Double> lapTimes, String club) {
+        this.name = name;
+        this.birthYear = birthYear;
+        this.lapTimes = lapTimes != null ? lapTimes : new ArrayList<>();
         this.club = club;
+        this.trainingPlan = null;
     }
-    
-    /**
-     * Return the fastest lap time
-     */
-    public double bestLapTime() {
-        double best = Double.MAX_VALUE;
-        for (double time: lapTimes) {
-        	if(best > time) {
-        		best = time;
-        	}
-        }
-        return best;
-    }
-    public TrainingPlan getTrainingPlan() {
-    	return trainingPlan;
-    }
-    public TrainingPlan setTrainingPlan(TrainingPlan trainingPlan){
-        return this.trainingPlan = trainingPlan;
-    }
-    public int allTrainingHours(){
-        	return trainingPlan.getWeeklyStrengthHours() + trainingPlan.getWeeklyWaterHours();
 
+    public String getName() {
+        return name;
+    }
+
+    public int getBirthYear() {
+        return birthYear;
+    }
+
+    public ArrayList<Double> getLapTimes() {
+        return lapTimes;
+    }
+
+    public String getClub() {
+        return club;
+    }
+
+    public TrainingPlan getTrainingPlan() {
+        return trainingPlan;
+    }
+
+    public void setTrainingPlan(TrainingPlan trainingPlan) {
+        this.trainingPlan = trainingPlan;
+    }
+
+    public double bestLapTime() {
+        if (lapTimes == null || lapTimes.isEmpty()) {
+            return 0.0;
+        }
+        double best = Double.MAX_VALUE;
+        for (Double t : lapTimes) {
+            if (t != null && t < best) {
+                best = t;
+            }
+        }
+        return best == Double.MAX_VALUE ? 0.0 : best;
+    }
+
+    public int allTrainingHours() {
+        if (trainingPlan == null) {
+            return 0;
+        }
+        // assumes TrainingPlan has these getters
+        return trainingPlan.getWeeklyWaterHours() + trainingPlan.getWeeklyStrengthHours();
     }
 }

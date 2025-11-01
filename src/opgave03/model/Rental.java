@@ -14,12 +14,24 @@ public class Rental {
         this.date = date;
     }
     public double getPrice(){
-        return 0;
+       double price = 0;
+        for (Car car: cars) {
+            price += car.getDayPrice() * rentalDays;
+        }
+        return price;
     }
     public void setDays(int days){
         this.rentalDays = days;
     }
     public int getDays(){
         return rentalDays;
+    }
+    public int getNumber(){
+        return number;
+    }
+    public void addCar(Car car){
+        if(!cars.contains(car)){
+            cars.add(car);
+        }
     }
 }

@@ -1,5 +1,6 @@
 package opgave01;
 
+
 import opgave01.model.Swimmer;
 import opgave01.model.TrainingPlan;
 
